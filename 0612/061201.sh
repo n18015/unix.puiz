@@ -1,12 +1,3 @@
-#! /bin/bash
-cap ()
-{
-	for i in $(find ~ -type f)
-	do
-			du -h $i
-		done
-	}
+#!/bin/bash
 
-	cap| sort -n|tail -5|tac
-
-	done
+find ~ -type f |xargs du -b |sort -nr |head -5|awk '{print $2}'|xargs du -h
